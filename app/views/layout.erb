@@ -10,23 +10,39 @@
     <title>Favefintechs</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link rel="stylesheet" href="/stylesheets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <h1><a href="/">FaveFintechs</a></h1>
+  <p>Browse and Save your Favourite Fintechs</p> 
+</div>
+<%if logged_in?%>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="/fintechs">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/<%= current_user.id %>">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Logout</a>
+      </li>
+    </ul>
+  </div>  
+</nav>
+<%end%>
+    <%=yield%>
+    
 
-        <%= yield %>
 
-      <footer class="branding">
-        <small>&copy; 2020 <strong>Favefintechs</strong></small>
-      </footer>
-    </div>
+<div class="jumbotron text-center" style="margin-bottom:0">
+   <small>&copy; 2020 <strong>Favefintechs - Made With Love By <a href="https://github.com/jackcooper1245">jackcooper1245</a> - <a href="https://twitter.com/normal_name12">@normal_name12</a></strong></small>
+</div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!--[if lt IE 7]>
-      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-    <![endif]-->
   </body>
 </html>

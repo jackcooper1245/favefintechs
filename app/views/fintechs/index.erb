@@ -1,0 +1,34 @@
+</br>
+<div class="containter-fluid">
+<div class="container-fluid">
+<h2><%=current_user.name%>'s Fintech Homepage</h2>
+<div class="col" style="background-color:lavender;">
+<table class="table table-borderless">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Founded</th>
+        <th>Sector</th>
+        <th>Founders</th>
+        <th>Website</th>
+      </tr>
+    </thead>
+    <body>
+    <%@fintechs.each do |fintech|%>
+      <tr>
+        <td><a href="/fintechs/<%=fintech.id%>"><%=fintech.name%></a></td>
+        <td><%=fintech.founded%></td>
+        <td><%=fintech.sector%></td>
+        <td><%=fintech.founders%></td>
+        <td><%=fintech.url%></td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+
+
+<button type="submit" class="btn btn-primary"><a href="/new" class="text-white">Create a new Fintech post</a></button>
+</div>
+</br>
+

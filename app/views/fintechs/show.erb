@@ -1,0 +1,25 @@
+</br>
+<div clas="container">
+<div class="container">
+<h3><%= @fintech.name%></h3>
+</br>
+    <li>Founded: <%=@fintech.founded%></li>   
+    <li>Sector: <%=@fintech.sector%></li>
+    <li>Founders: <%=@fintech.founders%></li>
+    <li>Company Website: <%=@fintech.url%></li>
+    <li>Created at: <%=@fintech.created_at%></li>
+
+</br>
+</br>
+<%if @fintech.user_id == current_user.id%>
+<button type="submit" class="btn btn-primary"><a class="text-white" href='/fintechs/<%=@fintech.id%>/edit'>Edit post</a></button>
+</br>
+</br>
+<form action="/fintechs/<%= @fintech.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+<button type="submit" class="btn btn-primary">Delete Post</button>
+</form>
+ </div>
+<%end%>
+</br>
+</div>

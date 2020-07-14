@@ -1,0 +1,23 @@
+<div class="container">
+</br>
+<h3><%= current_user.name %></h3>
+<dl>
+<dd>Username: <%=current_user.username%></dd>
+<dd>Email: <%=current_user.email%></dd>
+</dl>
+</br>
+<h4>Posts created:</h4>
+<% @fintechs.each do |fintech|%>
+<% if current_user.id == fintech.user_id %>
+<div class="container">
+<ul>
+<li><a href="/fintechs/<%=fintech.id%>"><%=fintech.name%></a></li>
+</ul>
+</div>
+<%end%>
+<%end%>
+</br>
+<button type="submit" class="btn btn-primary"><a class="text-white" href="/<%=current_user.id%>/edit">Edit profile</a></button>
+</br>
+</br>
+ </div>
