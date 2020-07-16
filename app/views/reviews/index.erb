@@ -1,35 +1,34 @@
 
 <h2>Reviews</h2>
-<div class="table-responsive">
-<div class="col" style="background-color:lavender;">
-<table class="table table-borderless">
-    <thead>
-      <tr>
-        <th>Company</th>
-        <th>Rating</th>
-        <th>Comments</th>
-        <th>User</th>
-        <th>Date submitted</th>
-      </tr>
-    </thead>
-    <body>
-      <tr>
-      <%@reviews.each do |r|%>
-        <td><%=r.company_name%></a></td>
-        <td><%=r.rating%></td>
-        <td><a href='/reviews/<%=r.id%>'>See review here</a></td>
-        <td><%=r.user.username%></td>
-        <td><%=r.created_at%>></td>
-      </tr>
-      <%end%>
-    </tbody>
-  </table>
-</div>
-</div>
-
-<button type="submit" class="btn btn-primary"><a href="/reviews/new" class="text-white">Create a new Review</a></button>
-</div>
-</br>
+   <div class="table-responsive">
+     <div class="col" style="background-color:lavender;">
+       <table class="table table-borderless">
+         <thead>
+           <tr>
+            <th>Company</th>
+             <th>Rating</th>
+               <th>Comments</th>
+                 <th>User</th>
+                  <th>Date submitted</th>
+                    </tr>
+                     </thead>
+                      <body>
+                       <tr>
+                        <%@reviews.each do |r|%>
+                          <td><%=r.company_name%></a></td>
+                          <td><%=r.rating%></td>
+                           <td><a href='/reviews/<%=r.id%>'>See review here</a></td>
+                         <td><%=r.user.username%></td>
+                      <td><%=r.created_at%>></td>
+                    </tr>
+                <%end%>
+              </tbody>
+            </table>
+           </div>
+          </div>
+        <button type="submit" class="btn btn-primary"><a href="/reviews/new" class="text-white">Create a new Review</a></button>
+     </div>
+  </br>
 
 
 
