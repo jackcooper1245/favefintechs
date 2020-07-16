@@ -1,0 +1,22 @@
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+          <h3 class="card-title text-center"><%=@review.company_name%></h3>
+            <h4>Rating:</h4>
+            <p><%=@review.rating%></p>
+            <h4>Review:</h4>
+              <p class="mb-0">"<%=@review.content%>"</p>
+              </br>
+              </br>
+              <h6>Created by - <%=@review.user.username%> at <%=@review.created_at%></h6>
+              <%if @review.user_id == current_user.id%>
+                <button type="submit" class="btn-lg btn-primary btn-block"><a class="text-white" href='/reviews/<%=@review.id%>/edit'>Edit Review</a></button>
+                <%end%>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

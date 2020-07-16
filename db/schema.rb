@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200714142808) do
+ActiveRecord::Schema.define(version: 20200716064855) do
+
+  create_table "fintech_reviews", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "fintech_id"
+  end
 
 # Could not dump table "finteches" because of following NoMethodError
 #   undefined method `[]' for nil:NilClass
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "content"
+    t.datetime "created_at"
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.integer  "fintech_id"
+    t.string   "company_name"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"

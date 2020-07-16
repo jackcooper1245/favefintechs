@@ -1,4 +1,5 @@
 require './config/environment'
+require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
 
@@ -36,11 +37,13 @@ class ApplicationController < Sinatra::Base
 	end
 
 	post "/signup" do
-    user = User.new(name: params[:name], username: params[:username], emails: params[:email], password: params[:pswd])
+    user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:pswd])
     if (user.save) && (params[:username].length > 0) && (params[:email].length > 0)
 	  session[:user_id] = user.id
 			redirect "/fintechs"
 		else
+			flash[:warning] = "Looks like that Username is already taken"
+
 			redirect "/signup"
 		end
 	end
@@ -49,7 +52,7 @@ class ApplicationController < Sinatra::Base
     if logged_in?
 			redirect "/fintechs"
 		else
-      erb :login
+	  erb :login
 		end   
 	end
 
@@ -57,12 +60,28 @@ class ApplicationController < Sinatra::Base
 		user = User.find_by(:username => params[:username])
 		if user && user.authenticate(params[:pswd])
 		  session[:user_id] = user.id
+		  flash[:warning] = "Successfully logged in as #{current_user.username}"
       redirect "/fintechs"
 	else
-		redirect "/"
+		flash[:warning] = "Your details were incorrect. Please try again"
+		redirect "/login"
 		end	
 	end
 
+
+	post "/search" do
+		@fintechs = Fintech.all
+		if
+		@fintech = @fintechs.find_by(name: params[:search])
+		redirect to "/fintechs/#{@fintech.id}"
+		else
+			redirect to '/error'
+		end
+	end
+
+	get '/error' do
+		erb :error
+	end
 
 	helpers do
 		def logged_in?
@@ -74,5 +93,8 @@ class ApplicationController < Sinatra::Base
     end
   end
   
-
+ get '/test' do
+	erb :'/fintechs/test'
+ end
+ 
 end

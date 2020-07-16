@@ -1,7 +1,6 @@
-</br>
-<div class="containter-fluid">
-<div class="container-fluid">
-<h2><%=current_user.name%>'s Fintech Homepage</h2>
+
+<h2>Fintech Homepage</h2>
+<div class="table-responsive">
 <div class="col" style="background-color:lavender;">
 <table class="table table-borderless">
     <thead>
@@ -10,6 +9,7 @@
         <th>Founded</th>
         <th>Sector</th>
         <th>Founders</th>
+        <th>Average Rating</th>
         <th>Website</th>
       </tr>
     </thead>
@@ -20,15 +20,27 @@
         <td><%=fintech.founded%></td>
         <td><%=fintech.sector%></td>
         <td><%=fintech.founders%></td>
+
+
+        <% @fintech_rating = [] %>
+        <% @reviews.each do |review| %>
+       <% if review.fintech_id == fintech.id%>
+        <% @fintech_rating << review.rating %>
+         <% @rating = @fintech_rating.sum / @fintech_rating.size %>
+         <% @rating %>
+        <% end %>
+       <% end %>
+
+        <td><%=@rating%>/ 5</td>
         <td><%=fintech.url%></td>
       </tr>
       <%end%>
     </tbody>
   </table>
 </div>
+</div>
 
-
-<button type="submit" class="btn btn-primary"><a href="/new" class="text-white">Create a new Fintech post</a></button>
+<button type="submit" class="btn btn-primary"><a href="/fintechs/new" class="text-white">Create a new Fintech post</a></button>
 </div>
 </br>
 

@@ -7,3 +7,4 @@ use Rack::MethodOverride
 run ApplicationController
 use FintechController
 use UserController
+use ReviewController

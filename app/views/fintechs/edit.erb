@@ -28,8 +28,11 @@
     <input type="text" id="sector" class="form-control"  placeholder="Copy the URl to the Company's website"name="url" required>
 </div>
     <button type="submit" class="btn btn-primary">Create</button>
+    <hr class="my-4">
+  <form action="/fintechs/<%= @fintech.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+<button type="submit" class="btn btn-primary">Delete Post</button>
 </form>
-
             </form>
           </div>
         </div>

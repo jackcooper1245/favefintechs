@@ -2,6 +2,7 @@ class FintechController < ApplicationController
 
     get '/fintechs' do
         @fintechs = Fintech.all
+        @reviews = Review.all
         if logged_in?
         erb :'/fintechs/index'
         else
@@ -9,18 +10,19 @@ class FintechController < ApplicationController
         end
       end
 
-    get '/new' do
+    get '/fintechs/new' do
         @fintechs = Fintech.all
         erb :'/fintechs/new'
     end  
 
     get '/fintechs/:id' do
+        @reviews = Review.all
         @fintech = Fintech.find(params[:id])
         erb :'/fintechs/show'
     end
 
 
-    post '/new' do
+    post '/fintechs/new' do
         @fintech = Fintech.create(name: params[:fintechname], user_id: current_user.id, founded: params[:founded], sector: params[:sector], founders: params[:founders], url: params[:url])
         redirect to '/fintechs'
     end   
@@ -46,5 +48,7 @@ class FintechController < ApplicationController
         @fintech.save
         redirect to "/fintechs/#{@fintech.id}"
       end
+
+
     
 end
