@@ -24,7 +24,12 @@ class FintechController < ApplicationController
 
     post '/fintechs/new' do
         @fintech = Fintech.create(name: params[:fintechname], user_id: current_user.id, founded: params[:founded], sector: params[:sector], founders: params[:founders], url: params[:url])
+        if @fintech.save
         redirect to '/fintechs'
+        else
+            flash[:warning] = "Looks like that company already exists. Try searching for it in the search bar!"
+            redirect to '/fintechs/new'
+        end
     end   
     
     

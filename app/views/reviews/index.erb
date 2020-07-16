@@ -18,7 +18,7 @@
         <td><%=r.company_name%></a></td>
         <td><%=r.rating%></td>
         <td><a href='/reviews/<%=r.id%>'>See review here</a></td>
-        <td><%=r.user_id%></td>
+        <td><%=r.user.username%></td>
         <td><%=r.created_at%>></td>
       </tr>
       <%end%>
