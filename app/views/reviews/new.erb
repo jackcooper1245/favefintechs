@@ -8,7 +8,7 @@
            <div class="form-group">
     <div class="form-group">
    <label for="reviewed_company">Company</label>
-    <select class="form-control" name="reviewed_company">
+    <select class="form-control" name="reviewed_company" required>
     <option>Please select a Company</option>
       <%@fintechs.each do |fintech|%>
       <option><%=fintech.name%></option>
@@ -20,23 +20,23 @@
     </br>
   <label for="rating">Rating:</label>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="ratingCheckbox1" name="rating" value="1 Star">
+  <input class="form-check-input" type="radio" id="ratingCheckbox1" name="rating" value="1 Star" required>
   <label class="form-check-label" for="inlineCheckbox1">1</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="ratingCheckbox2" name="rating" value="2 Star">
+  <input class="form-check-input" type="radio" id="ratingCheckbox2" name="rating" value="2 Star" required>
   <label class="form-check-label" for="inlineCheckbox2">2</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="ratingCheckbox3" name="rating" value="3 Star">
+  <input class="form-check-input" type="radio" id="ratingCheckbox3" name="rating" value="3 Star" required>
   <label class="form-check-label" for="inlineCheckbox3">3</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="ratingCheckbox4"name="rating" value="4 Star">
+  <input class="form-check-input" type="radio" id="ratingCheckbox4"name="rating" value="4 Star" required>
   <label class="form-check-label" for="inlineCheckbox3">4</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="ratingCheckbox5" name="rating" value="5 Star">
+  <input class="form-check-input" type="radio" id="ratingCheckbox5" name="rating" value="5 Star" required>
   <label class="form-check-label" for="inlineCheckbox3">5</label>
 </div>
 <div class="form-group">
