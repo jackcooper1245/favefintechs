@@ -16,16 +16,16 @@
 
   </head>
   <body>
-  
-  <div class="container-fluid">
+  <div>
   <%if logged_in?%>
-    <div class="jumbotron text-left" style="margin-bottom:0;background-color:#3AB795;">
+    <div class="jumbotron text-center" style="margin-bottom:0;background-color:#3AB795;">
     <a href="/fintechs"><img src="https://res.cloudinary.com/dp8itibam/image/upload/v1595880489/FaveFintech_Logo_copy_pj4vpp.png" height="20%" width="20%" style="padding: 0;"></a>
     <%else%>
     <div class="jumbotron text-center" style="margin-bottom:0;background-color:#3AB795;">
         <a href="/"><img src="https://res.cloudinary.com/dp8itibam/image/upload/v1595880489/FaveFintech_Logo_copy_pj4vpp.png" height="60%" width="60%" style="padding: 0;"></a>
  <%end%>
-  </div>
+ </div>
+
 
 <%if logged_in?%>
 
@@ -67,7 +67,7 @@
     <main style="background-color:#3AB795; height: 100vh;">
     <%=yield%>
     </main>
-     <div class="jumbotron text-center fixed-bottom" style="margin-bottom:0;background-color:#FFCF56; ">
+     <div class="jumbotron text-center fixed-bottom container-fluid" style="margin-bottom:0;background-color:#FFCF56; ">
     <small style="color: #3AB795;">&copy; 2020 <strong>Favefintechs - Made With Love By <a href="https://github.com/jackcooper1245">jackcooper1245</a> - <a href="https://twitter.com/normal_name12">@normal_name12</a></strong></small>
     </div>
     </div>
