@@ -12,17 +12,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    
+
   </head>
   <body>
+  
   <div class="container-fluid">
-  <div class="jumbotron text-center" style="margin-bottom:0;background-color:#3AB795;">
-    <h1><a href="/" style="color: #EDEAD0; font-size: 175%;">FaveFintechs</a></h1>
-    <p style="color: #EDEAD0;font-size: 150%;">Review your Favourite Fintechs</p> 
+  <%if logged_in?%>
+    <div class="jumbotron text-left" style="margin-bottom:0;background-color:#3AB795;">
+    <a href="/fintechs"><img src="https://res.cloudinary.com/dp8itibam/image/upload/v1595880489/FaveFintech_Logo_copy_pj4vpp.png" height="20%" width="20%" style="padding: 0;"></a>
+    <%else%>
+    <div class="jumbotron text-center" style="margin-bottom:0;background-color:#3AB795;">
+        <a href="/"><img src="https://res.cloudinary.com/dp8itibam/image/upload/v1595880489/FaveFintech_Logo_copy_pj4vpp.png" height="60%" width="60%" style="padding: 0;"></a>
+ <%end%>
   </div>
 
 <%if logged_in?%>
 
-  <nav class="navbar navbar-expand-sm  navbar-light" style="background-color: #FFCF56;">
+  <nav class="navbar navbar-expand-sm  navbar-light" style="background-color: #FFCF56; font-size: large;">
     <a class="navbar-brand" href="/fintechs">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
@@ -57,14 +64,13 @@
       <a href="#" class="close">&times;</a>
     </div>
   <% end %>
-  <div style="background-color:#A0E8AF;">
-  <div class="container-fluid">
-  <%=yield%>
-  </div>
-  </div>
-  <div class="jumbotron text-center" style="margin-bottom:0;background-color:#3AB795; ">
-    <small style="color: #EDEAD0;">&copy; 2020 <strong>Favefintechs - Made With Love By <a href="https://github.com/jackcooper1245">jackcooper1245</a> - <a href="https://twitter.com/normal_name12">@normal_name12</a></strong></small>
-  </div>
- </div>
+    <main style="background-color:#3AB795; height: 100vh;">
+    <%=yield%>
+    </main>
+     <div class="jumbotron text-center fixed-bottom" style="margin-bottom:0;background-color:#FFCF56; ">
+    <small style="color: #3AB795;">&copy; 2020 <strong>Favefintechs - Made With Love By <a href="https://github.com/jackcooper1245">jackcooper1245</a> - <a href="https://twitter.com/normal_name12">@normal_name12</a></strong></small>
+    </div>
+    </div>
+    </div>
   </body>
 </html>
