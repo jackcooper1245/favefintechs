@@ -1,19 +1,22 @@
 <%if !logged_in?%>
-<form method='POST' action='/login'>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card card-signin my-5">
-          <div class="card-body">
-          <h3 class="card-title text-center">Welcome to FaveFintechs</h3>
-                        <hr class="my-4">
-           <button class="btn btn-lg btn-primary btn-block text-uppercase" type="Login"> <a class="text-white" href='/login'>Login</a></button>
-                         <button class="btn btn-lg btn-google btn-block" type="submit"><i class="fab fa-google mr-2"></i>or <a href='/signup'>Sign Up</a></button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
+
+<div class="container">
+<div class="row">
+<div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+<div class="card card-signin my-5">
+<div class="card-body">
+
+    <h1 class="card-title text-center">Welcome to FaveFintechs</h1>
+    <hr class="my-4">
+    <a class="text-white" href='/login'><button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button></a>
+    <hr class="my-4">
+    <a class="text-white" href='/signup'><button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign Up</button></a>
+    <hr class="my-4">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
 <%end%>

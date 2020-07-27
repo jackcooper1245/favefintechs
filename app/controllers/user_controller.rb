@@ -34,6 +34,6 @@ class UserController < ApplicationController
         @user.password = params[:password]
         @user.save
         redirect to "/#{current_user.id}"
-      end
+    end
 
 end

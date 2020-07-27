@@ -3,66 +3,65 @@ require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
 
-  configure do
-    set :public_folder, 'public'
-    set :views, 'app/views'
-    enable :sessions
-	set :session_secret, "password_security"  
-	register Sinatra::Flash
-  end
-
-  get "/" do
-	if logged_in?
-		redirect '/fintechs'
-	else
-    @user = User.all
-	erb :index
+	configure do
+		set :public_folder, 'public'
+		set :views, 'app/views'
+		enable :sessions
+		set :session_secret, "password_security"  
+		register Sinatra::Flash
 	end
-  end
 
-  get '/fintechs' do
-    if logged_in?
-    erb :'/fintechs/index'
-    else
-      erb :login
-    end
-  end
-
-  get "/signup" do
+	get "/" do
 		if logged_in?
-			redirect "/fintechs"
+			redirect '/fintechs'
 		else
-			erb :signup
-		end    
-	end
-
-	post "/signup" do
-    user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:pswd])
-    if (user.save) && (params[:username].length > 0) && (params[:email].length > 0)
-	  session[:user_id] = user.id
-			redirect "/fintechs"
-		else
-			flash[:warning] = "Looks like that Username is already taken"
-
-			redirect "/signup"
+		@user = User.all
+		erb :index
 		end
 	end
 
-  get "/login" do
-    if logged_in?
-			redirect "/fintechs"
+	get '/fintechs' do
+		if logged_in?
+		erb :'/fintechs/index'
 		else
-	  erb :login
+		erb :login
+		end
+	end
+
+	get "/signup" do
+	if logged_in?
+		redirect "/fintechs"
+	else
+		erb :signup
+	end    
+	end
+
+	post "/signup" do
+	user = User.new(name: params[:name], username: params[:username], email: params[:email], password: params[:pswd])
+		if (user.save) && (params[:username].length > 0) && (params[:email].length > 0)
+		session[:user_id] = user.id
+		redirect "/fintechs"
+		else
+		flash[:warning] = "Looks like that Username is already taken"
+		redirect "/signup"
+	end
+	end
+
+	get "/login" do
+		if logged_in?
+		redirect "/fintechs"
+		else
+		erb :login
 		end   
 	end
 
 	post "/login" do
 		user = User.find_by(:username => params[:username])
 		if user && user.authenticate(params[:pswd])
-		  session[:user_id] = user.id
-		  flash[:warning] = "Successfully logged in as #{current_user.username}"
-      redirect "/fintechs"
-	else
+		session[:user_id] = user.id
+		flash[:warning] = "Successfully logged in as #{current_user.username}"
+		redirect "/fintechs"		
+		else
 		flash[:warning] = "Your details were incorrect. Please try again"
 		redirect "/login"
 		end	
@@ -88,13 +87,13 @@ class ApplicationController < Sinatra::Base
 			!!session[:user_id]
 		end
 
-	  def current_user
+		def current_user
 			User.find(session[:user_id])
-    end
-  end
-  
- get '/test' do
-	erb :'/fintechs/test'
- end
- 
+		end
+	end
+	
+	get '/test' do
+		erb :'/fintechs/test'
+	end
+	
 end

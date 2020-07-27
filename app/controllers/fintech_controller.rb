@@ -53,7 +53,5 @@ class FintechController < ApplicationController
         @fintech.save
         redirect to "/fintechs/#{@fintech.id}"
       end
-
-
     
 end
