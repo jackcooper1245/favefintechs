@@ -1,8 +1,9 @@
+<div class="container-fluid">
 <div class="container">
 <div class="row">
 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
 <div class="card card-signin my-5">
-<div class="card-body">
+<div class="card-body" style="border: solid; border-color: #3AB795; color: #3AB795; background-color:#EDEAD0;">
 
   <h1 class="card-title text-center"><%= @fintech.name%></h1>
   <hr class="my-4">
@@ -32,12 +33,13 @@
     <%end%>   
   <hr class="my-4">
      
-  <button type="submit" class="btn-lg btn-primary btn-block"><a href="/reviews/new" class="text-white">Create a new Review</a></button>
+  <a href="/reviews/new" class="text-white"><button type="submit" class="btn-lg btn-warning btn-block">Create a new Review</button></a>
   <hr class="my-4">
   <%if @fintech.user_id == current_user.id%>
-  <button type="submit" class="btn-lg btn-primary btn-block"><a class="text-white" href='/fintechs/<%=@fintech.id%>/edit'>Edit post</a></button>
+  <a  href='/fintechs/<%=@fintech.id%>/edit'><button type="submit" class="btn-lg btn-warning btn-block">Edit post</button></a>
   <%end%>
 
+</div>
 </div>
 </div>
 </div>

@@ -1,10 +1,11 @@
+<div class="container-fluid">
 <form action="/fintechs/<%= @fintech.id %>" method="post">
 <input id="hidden" type="hidden" name="_method" value="patch">
   <div class="container">
   <div class="row">
   <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
   <div class="card card-signin my-5">
-  <div class="card-body">
+  <div class="card-body" style="background-color:#bbe1fa; color: #3AB795; background-color:#EDEAD0;">
 
     <h5 class="card-title text-center">Edit a Post:</h5>
     <hr class="my-4">
@@ -37,7 +38,7 @@
 
     <form action="/fintechs/<%= @fintech.id %>" method="post">
       <input id="hidden" type="hidden" name="_method" value="delete">
-      <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase">Delete Post</button>
+      <button type="submit" class="btn btn-lg btn-warning btn-block text-uppercase">Delete Post</button>
     </form>
 
   </div>
@@ -46,3 +47,4 @@
   </div>
   </div>
 </form>
+</div>
