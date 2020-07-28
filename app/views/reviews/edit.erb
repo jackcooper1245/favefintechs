@@ -1,22 +1,13 @@
 <div class="container-fluid">
-<form method='POST' action='/reviews/new' id="new-review">
+<form method='POST' action='/reviews/<%=@review.id%>' id="new-review">
   <div class="container">
   <div class="row">
 <div class="col-lg-10 col-xl-9 mx-auto">
   <div class="card card-signin my-5">
-  <div class="card-body" style=" color: #3AB795; background-color: #ebfbf4;">
-  <h5 class="card-title text-center">Edit a Review</h5>
+  <div class="card-body" style=" background-color: #ebfbf4;">
+  <h3 class="card-title text-center"><%=@review.company_name%></h3>
 
   <div class="form-group">
-  <div class="form-group">
-    <label for="reviewed_company">Company</label>
-    <select class="form-control" name="reviewed_company">
-    <%@fintechs.each do |fintech|%>
-    <option><%=fintech.name%></option>
-    <%end%>
-    </select>
-    or <a href="/fintechs/new">Create a New Company</a>
-  </div>
 
 
       <label for="rating">Rating:</label>
@@ -43,7 +34,7 @@
 
         <div class="form-group">
           <label for="content">Comments:</label>
-          <textarea class="form-control" id="content" name="content" rows="3" form="new-review"></textarea>
+          <textarea class="form-control" id="content" name="content" rows="3" form="new-review" placeholder="<%=@review.content%>"></textarea>
         </div>
 
     <hr class="my-4">
