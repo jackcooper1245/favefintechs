@@ -3,6 +3,8 @@ Welcome to FaveFintechs. FaveFintechs is a website where you can rate and review
 
 ![Screenshot 2020-07-28 at 14 59 06 (2)](https://user-images.githubusercontent.com/62208846/88675697-19f71c00-d0e3-11ea-814d-bd2a033b65c6.png)
 
+Please watch this run through here: https://www.youtube.com/watch?v=4Px76N1u0DU
+
 ## Motivation
 I built FaveFintech for my 2nd project at Flatiron School. It is a Sinatra Rack based Web app.
 
